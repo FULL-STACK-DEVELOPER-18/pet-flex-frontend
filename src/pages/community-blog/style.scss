@@ -1,0 +1,29 @@
+.custom-avatar {
+    width: 100px; // Adjust width as needed
+    height: 100px; // Adjust height as needed
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px; // Remove rounding
+}
+
+.card-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+  
+.card-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 4.5em; // Adjust based on your font size and line height
+}
+
+.card-date {
+    margin-top: 0.5em; // Add space above the date
+    font-weight: bold; // Optional: make the date bold
+}

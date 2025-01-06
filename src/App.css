@@ -1,0 +1,12 @@
+.ant-btn{
+    height: 38px;
+}
+
+.ant-btn span {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.ant-picker-input input {
+    font-weight: 600;
+}
