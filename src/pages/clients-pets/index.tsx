@@ -22,6 +22,10 @@ export const ClientPets: React.FC = () => {
       title: 'S.No',
       dataIndex: 'id',
       key: 'id',
+      width: 100,
+      render: (text: string, record: any, index: number) => (
+        <div style={{ textAlign: 'center' }}>{String(index + 1).padStart(2, '0')}</div>
+      ),
     },
     {
       title: 'Client Name',

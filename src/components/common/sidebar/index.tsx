@@ -4,6 +4,7 @@ import { useSidebarItems } from '../../../hooks/slider-items.hook';
 const { Sider } = Layout;
 
 import './sidebar.scss';
+import { PetFlexLogo } from '../../../assets/svg-images';
 // import { BoilerPlateLogo } from '../../../assets/icons';
 interface SidebarComponentProps {
   collapsed: boolean;
@@ -30,9 +31,9 @@ export const SidebarComponent = ({
     <div
       className={`sidebar-menu ${collapsed ? 'close_sidebar' : 'open_sidebar'}`}
     >
-      <Sider width={250} trigger={null} collapsible collapsed={collapsed}>
+      <Sider width={250} trigger={null} collapsible collapsed={collapsed} className='sidebarr'>
         <div className="logo">
-          {/* <BoilerPlateLogo /> */}
+          <PetFlexLogo />
           {window.innerWidth <= 767 && !collapsed && (
             <div className="close-icon" onClick={() => setCollapsed(true)}>
               <svg

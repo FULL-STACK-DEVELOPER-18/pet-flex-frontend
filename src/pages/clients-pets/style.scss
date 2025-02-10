@@ -1,5 +1,7 @@
 .main-table {
-	padding: 20px 15px;
+    padding: 20px 15px;
+    border-collapse: collapse;
+    width: 100%;
 
     .table-btn {
         text-align: right;
@@ -7,10 +9,51 @@
     }
 
     .ant-btn {
-        height:38px;
-            span {
+        height: 38px;
+        span {
             font-weight: 600;
             font-size: 16px;
         }
     }
+
+    .ant-table-thead > tr > th {
+        background-color: #71BB5C;
+        color: white;
+        border-right: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+    }
+
+    .ant-table-thead > tr > th:first-child {
+        color: white;
+    }
+
+    .ant-table-tbody > tr > td {
+        border-right: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .ant-table-tbody > tr > td:first-child {
+        color: #71BB5C;
+    }
+}
+
+:where(.css-dev-only-do-not-override-1hpnbz2).ant-table-wrapper .ant-table-thead >tr>th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before, :where(.css-dev-only-do-not-override-1hpnbz2).ant-table-wrapper .ant-table-thead >tr>td:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+    background-color: transparent;
+}
+
+:where(.css-dev-only-do-not-override-1hpnbz2).ant-pagination .ant-pagination-item-active {
+    border-color: #40a76b
+}
+
+:where(.css-dev-only-do-not-override-1hpnbz2).ant-pagination .ant-pagination-item-active:hover {
+    border-color: #40a76b
+}
+
+:where(.css-dev-only-do-not-override-1hpnbz2).ant-pagination .ant-pagination-item-active a {
+    color: #40a76b
+}
+
+:where(.css-dev-only-do-not-override-1hpnbz2).ant-pagination .ant-pagination-item-active a:hover {
+    color: #40a76b
 }

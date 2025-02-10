@@ -29,7 +29,6 @@ export const Login = () => {
     },
   });
 
-  //Call when click on login button
   const onFinish = (values: any) => {
     mutate(values);
   };
@@ -42,44 +41,48 @@ export const Login = () => {
     });
   }
 
-
   return (
-    <Form
-      className="login-form"
-      autoComplete="off"
-      name="basic"
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-      layout="vertical"
-    >
-      <Form.Item label="Email" name="email" rules={Validation('email')}>
-        <Input />
-      </Form.Item>
+    <div className="login-container">
+      <div className="login-image"></div>
+      <div className="login-form-container">
+        <Form
+          className="login-form"
+          autoComplete="off"
+          name="basic"
+          initialValues={{ remember: true }}
+          onFinish={onFinish}
+          layout="vertical"
+        >
+          <Form.Item label="Email" name="email" rules={Validation('email')}>
+            <Input />
+          </Form.Item>
 
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={Validation('password')}
-      >
-        <Input.Password />
-      </Form.Item>
+          <Form.Item
+            label="Password"
+            name="password"
+            rules={Validation('password')}
+          >
+            <Input.Password />
+          </Form.Item>
 
-      <Form.Item className="forget-pwd">
-        <a href="/forgot-password">Forgot password</a>
-      </Form.Item>
+          <Form.Item className="forget-pwd">
+            <a href="/forgot-password">Forgot password</a>
+          </Form.Item>
 
-      <Form.Item className="login-btn">
-        <Button type="primary" htmlType="submit" loading={isPending}>
-          Login
-        </Button>
-      </Form.Item>
+          <Form.Item className="login-btn">
+            <Button type="primary" htmlType="submit" loading={isPending}>
+              Login
+            </Button>
+          </Form.Item>
 
-      <Form.Item className="signup-text">
-        <span>
-          Don't have an account?{' '}
-          <Link to={routeConstant.app.signup.path}>SignUp</Link>
-        </span>
-      </Form.Item>
-    </Form>
+          <Form.Item className="login-text">
+            <span>
+              Don't have an account?{' '}
+              <Link to={routeConstant.app.signup.path}>SignUp</Link>
+            </span>
+          </Form.Item>
+        </Form>
+      </div>
+    </div>
   );
 };

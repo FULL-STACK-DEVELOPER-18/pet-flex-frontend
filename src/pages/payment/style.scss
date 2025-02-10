@@ -1,0 +1,143 @@
+.pricing-container {
+    text-align: center;
+    padding: 20px;
+}
+
+.pricing-title {
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 60px;
+    line-height: 44.14px;
+}
+
+.pricing-cards {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 60px;
+}
+
+.card {
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 335.05px;
+    height: 457.74px;
+    text-align: left;
+    position: relative;
+}
+
+.card-header {
+    display: flex;
+    gap: 10px;
+}
+
+.card-image {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.card h2 {
+    font-family: Poppins;
+    font-size: 26.96px;
+    font-weight: 600;
+    line-height: 42.65px;
+    color: #369062;
+}
+
+.card p {
+    font-family: 'Roboto';
+    font-size: 14.44px;
+    font-weight: 500;
+    line-height: 42.65px;
+    text-align: left;
+}
+
+.card h3 {
+    font-family: Gilroy;
+    font-size: 40.44px;
+    font-weight: 700;
+    line-height: 42.65px;
+}
+
+.card h3 span {
+    font-family: Gilroy;
+    font-size: 19.32px;
+    font-weight: 500;
+    line-height: 42.65px;
+}
+
+.card hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+.card h4 {
+    font-family: Gilroy;
+    font-size: 16.54px;
+    font-weight: 600;
+    line-height: 19.24px;
+    color: #369062;
+}
+
+.card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.card ul li {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    font-family: Roboto;
+    font-size: 14.44px;
+    font-weight: 400;
+    line-height: 32.65px;
+}
+
+.card ul li svg {
+    margin-right: 8px;
+  }
+
+.card button {
+    background-color: #C0F84B;
+    width: 290px;
+    height: 53.3px;
+    border: 0.51px solid;
+    border-radius: 10.15px;
+    border-image-source: linear-gradient(90deg, #71BB5C 0%, #369062 100%);
+}
+
+.card.popular {
+    background: linear-gradient(100deg, #71BB5C, #369062);
+    color: #FFFFFF;
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 334.21px;
+    height: 500.04px;
+    border-radius: 15.91px;
+}
+
+.card.popular h2 {
+    color: #FFFFFF;
+}
+
+.card.popular p {
+    color: #FFFFFF;
+}
+
+.card.popular h4 {
+    font-family: Gilroy;
+    font-size: 16.54px;
+    font-weight: 600;
+    line-height: 19.24px;
+    color: #FFFFFF;
+}
+
+.card.popular button {
+    background-color: #C0F84B;
+}

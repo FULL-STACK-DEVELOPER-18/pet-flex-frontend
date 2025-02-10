@@ -6,26 +6,25 @@ import { routeConstant } from '../../constants/routes';
 import { ShowNotification } from '../../utils/notification';
 import { Validation } from '../../constants/validations';
 import { registerUser } from '../../redux/actions/auth.action';
+import authimage from "../../assets/png-images/auth-image.png";
 import { AxiosError } from 'axios';
 import './signup.style.scss';
 
 export const Signup: FC = () => {
   const navigate = useNavigate();
 
-  //Signup submit mutation
   const { mutate, isPending, error } = useMutation({
     mutationKey: ['REGISTER_USER'],
     mutationFn: registerUser,
     onSuccess: () => {
       navigate(`${routeConstant.app.login.path}`);
       ShowNotification({
-        message: 'User registred sucessfully',
+        message: 'User registered successfully',
         type: 'success',
       });
     },
   });
 
-  //Signup submit event
   const onFinish = (values: any) => {
     mutate(values);
   };
@@ -39,36 +38,43 @@ export const Signup: FC = () => {
   }
 
   return (
-    <Form
-      className="signup-form"
-      autoComplete="off"
-      name="basic"
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-      layout="vertical"
-    >
-      <Form.Item label="Email" name="email" rules={Validation('email')}>
-        <Input />
-      </Form.Item>
+    <div className="signup-container">
+      <div className="signup-image"></div>
+      <div className="signup-form-container">
+        <Form
+          className="signup-form"
+          autoComplete="off"
+          name="basic"
+          initialValues={{ remember: true }}
+          onFinish={onFinish}
+          layout="vertical"
+        >
+          <Form.Item label="Email" name="email" rules={Validation('email')}>
+            <Input />
+          </Form.Item>
 
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={Validation('password')}
-      >
-        <Input.Password />
-      </Form.Item>
+          <Form.Item
+            label="Password"
+            name="password"
+            rules={Validation('password')}
+          >
+            <Input.Password />
+          </Form.Item>
 
-      <Form.Item className="signup-btn">
-        <Button type="primary" htmlType="submit" loading={isPending}>Sign Up</Button>
-      </Form.Item>
+          <Form.Item className="signup-btn">
+            <Button type="primary" htmlType="submit" loading={isPending}>
+              Sign Up
+            </Button>
+          </Form.Item>
 
-      <Form.Item className="signup-text">
-        <span>
-          Already have an account?{' '}
-          <Link to={routeConstant.app.login.path}>Login</Link>
-        </span>
-      </Form.Item>
-    </Form>
+          <Form.Item className="signup-text">
+            <span>
+              Already have an account?{' '}
+              <Link to={routeConstant.app.login.path}>Login</Link>
+            </span>
+          </Form.Item>
+        </Form>
+      </div>
+    </div>
   );
 };
