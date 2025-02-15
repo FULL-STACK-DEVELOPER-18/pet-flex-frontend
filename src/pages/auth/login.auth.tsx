@@ -5,8 +5,9 @@ import { routeConstant } from "../../constants/routes";
 import { useMutation } from "@tanstack/react-query";
 import { setLocalStorageItem } from "../../utils/local-storage";
 import { ShowNotification } from "../../utils/notification";
-import { loginUser } from "../../redux/actions/auth.action";
-import { AxiosError } from "axios";
+import { loginUser, loginWithGoogle } from "../../redux/actions/auth.action";
+import axios, { AxiosError } from "axios";
+import { useGoogleLogin } from '@react-oauth/google';
 import './login.style.scss';
 
 export interface LoginResponse {
@@ -25,6 +26,55 @@ export const Login = () => {
       ShowNotification({
         message: 'Login successfully!',
         type: 'success',
+      });
+    },
+  });
+
+  const { mutate: googleLoginMutation } = useMutation({
+    mutationKey: ['GOOGLE_LOGIN'],
+    mutationFn: loginWithGoogle,
+    onSuccess: (data: LoginResponse) => {
+      setLocalStorageItem('token', data.token!);
+      navigate(`${routeConstant.app.clientPets.path}`);
+      ShowNotification({
+        message: 'Google login successful!',
+        type: 'success',
+      });
+    },
+    onError: (error: any) => {
+      ShowNotification({
+        message: error?.response?.data?.message || 'Google login failed!',
+        type: 'error',
+      });
+    },
+  });
+  
+  const googleLogin = useGoogleLogin({
+    onSuccess: async (response) => {
+      try {
+        const userInfo = await axios.get(
+          'https://www.googleapis.com/oauth2/v3/userinfo',
+          {
+            headers: { Authorization: `Bearer ${response.access_token}` },
+          }
+        );
+        console.log("calllll", userInfo)
+        
+        googleLoginMutation({
+          email: userInfo.data.email,
+          name: userInfo.data.name,
+        });
+      } catch (error) {
+        ShowNotification({
+          message: 'Failed to get Google user info',
+          type: 'error',
+        });
+      }
+    },
+    onError: () => {
+      ShowNotification({
+        message: 'Google login failed',
+        type: 'error',
       });
     },
   });
@@ -72,6 +122,12 @@ export const Login = () => {
           <Form.Item className="login-btn">
             <Button type="primary" htmlType="submit" loading={isPending}>
               Login
+            </Button>
+          </Form.Item>
+
+          <Form.Item className="google-login-btn">
+            <Button onClick={() => googleLogin()} type="default">
+              Login with Google
             </Button>
           </Form.Item>
 

@@ -25,3 +25,10 @@ export const changePassword = async (data: any) => {
   const response = await executeApi('post', 'http://localhost:3000/v1/api/auth/change-password', data) as AxiosResponse & { body: any };
   return response?.body;
 };
+
+export const loginWithGoogle = async (data: { email: string; name: string }) => {
+  console.log("data", data)
+  const response = await executeApi('post', 'http://localhost:3000/v1/api/auth/login-register-by-google-login', data) as AxiosResponse & { body: any };
+  console.log("response", response)
+  return response?.body;
+};

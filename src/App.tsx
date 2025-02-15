@@ -4,6 +4,8 @@ import { store } from './redux/store'
 import { MainRoutes } from './routes'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { onApiCallRetry } from './utils/errroAPICall';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+
 function App() {
 
   const queryClient = new QueryClient({
@@ -17,11 +19,13 @@ function App() {
   });
 
   return (
-    <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
-        <MainRoutes />
-      </QueryClientProvider>
-    </Provider>
+    <GoogleOAuthProvider clientId="391066358262-m64c2bprqoh4ibso55nv6eusk6gcgmol.apps.googleusercontent.com">
+      <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
+          <MainRoutes />
+        </QueryClientProvider>
+      </Provider>
+    </GoogleOAuthProvider>
   )
 }
 

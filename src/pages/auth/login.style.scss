@@ -41,6 +41,21 @@
     margin-top: 20px;
 }
 
+.google-login-btn {
+    .ant-btn {
+      width: 100%;
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      
+      &:hover {
+        background-color: #f5f5f5;
+      }
+    }
+  }
+
 .forget-pwd {
     text-align: right;
     font-weight: 600;
