@@ -6,6 +6,7 @@ import { UnAuthorizedLayout } from '../components/unAuthorized-layout';
 import { PageNotFound } from '../components/page-not-found';
 import { Profile } from '../pages/profile';
 import { ClientPets } from '../pages/clients-pets';
+import { Exercises } from '../pages/exercises';
 import { CalendarEvents } from '../pages/calendar';
 import { Programs } from '../pages/programs';
 import { Inbox } from '../pages/inbox';
@@ -26,6 +27,7 @@ export const MainRoutes: FC = () => {
       <Routes>
          <Route path={routeConstant.app.initialHome.path} element={<AuthorizedLayout />}>
            <Route path={routeConstant.app.clientPets.path} element={<ClientPets />} />
+           <Route path={routeConstant.app.exercises.path} element={<Exercises />} />
            <Route path={routeConstant.app.calendar.path} element={<CalendarEvents />} />
            <Route path={routeConstant.app.programs.path} element={<Programs />} />
            <Route path={routeConstant.app.inbox.path} element={<Inbox />} />

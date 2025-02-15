@@ -4,8 +4,7 @@ import { useSidebarItems } from '../../../hooks/slider-items.hook';
 const { Sider } = Layout;
 
 import './sidebar.scss';
-import { PetFlexLogo } from '../../../assets/svg-images';
-// import { BoilerPlateLogo } from '../../../assets/icons';
+import { PaymentPetflexClapIcon, PetFlexLogo } from '../../../assets/svg-images';
 interface SidebarComponentProps {
   collapsed: boolean;
   setCollapsed: (collapsed: boolean) => void;
@@ -31,9 +30,9 @@ export const SidebarComponent = ({
     <div
       className={`sidebar-menu ${collapsed ? 'close_sidebar' : 'open_sidebar'}`}
     >
-      <Sider width={250} trigger={null} collapsible collapsed={collapsed} className='sidebarr'>
+      <Sider width={250} trigger={null} collapsible collapsed={collapsed}   collapsedWidth={75} className='sidebarr'>
         <div className="logo">
-          <PetFlexLogo />
+          {!collapsed ? <PetFlexLogo /> : <PaymentPetflexClapIcon />}
           {window.innerWidth <= 767 && !collapsed && (
             <div className="close-icon" onClick={() => setCollapsed(true)}>
               <svg

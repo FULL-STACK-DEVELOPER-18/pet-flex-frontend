@@ -23,9 +23,9 @@
 
     .logo {
         display: flex;
-        justify-content: center; /* Horizontal centering */
-        align-items: center; /* Vertical centering */
-        width: 100%; /* Ensure it takes full width */
+        justify-content: center;
+        align-items: center;
+        width: 100%;
         margin: 15px auto;
     }
 
@@ -47,6 +47,30 @@
     background: #40A76B;
     border-radius: 10px;
 }
+
+.ant-menu-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+  
+    .anticon, .custom-menu-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+    }
+  
+    .custom-menu-icon img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+  
+    .ant-menu-title-content {
+      flex: 1;
+    }
+  }
 
 .ant-menu-item-selected {
     background-color: rgba(255, 255, 255, 0.1) !important;

@@ -45,6 +45,11 @@ export const routeConstant = {
       path: '/calendar',
       title: 'Calendar',
     },
+    exercises: {
+      id: 'exercises',
+      path: '/exercises',
+      title: 'Exercises',
+    },
     programs: {
       id: 'programs',
       path: '/programs',

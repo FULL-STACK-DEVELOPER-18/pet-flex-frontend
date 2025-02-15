@@ -1,10 +1,19 @@
 import React from 'react';
-import { LogoutOutlined, DashboardOutlined } from '@ant-design/icons';
+import { LogoutOutlined, CalendarOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { routeConstant } from '../constants/routes';
 import type { MenuProps } from 'antd';
 import { removeLocalStorageItem } from '../utils/local-storage';
-// import { ClientPetImage, ProgramImage } from '../assets/svg-images';
+import accountIcon from '../assets/png-images/account-detail-icon.png';
+import billingIcon from '../assets/png-images/billing-icon.png';
+import clientPetsIcon from '../assets/png-images/client-pet-icon.png';
+import communityBlogIcon from '../assets/png-images/community-blog-icon.png';
+import exerciseIcon from '../assets/png-images/exerciseIcon.png';
+import inboxIcon from '../assets/png-images/inbox-icon.png';
+import paymentIcon from '../assets/png-images/payment-icon.png';
+import programsIcon from '../assets/png-images/program-icon.png';
+import referralIcon from '../assets/png-images/referral-icon.png';
+import teammatesIcon from '../assets/png-images/teammates-icon.png';
 // import { logoutUser } from '../redux/actions/authentication/auth';
 
 type MenuItem = Required<MenuProps>['items'][number];
@@ -35,51 +44,46 @@ export const useSidebarItems = () => {
     // });
   };
 
+  const PngIcon = ({ src }: { src: string }) => (
+    <span className="custom-menu-icon">
+      <img src={src} alt="menu icon" />
+    </span>
+  );
+
   const items: MenuItem[] = [
-    // getItem('Home', 'initialHome', <DashboardOutlined />, () =>
-    //   navigate(routeConstant.app.initialHome.path),
-    // ),
-    getItem('Clients Pets', 'clientPets', <DashboardOutlined />, () =>
+    getItem('Clients Pets', 'clientPets', <PngIcon src={clientPetsIcon} />, () =>
       navigate(routeConstant.app.clientPets.path),
     ),
-    getItem('Calendar', 'calendar', <DashboardOutlined />, () =>
+    getItem('Calendar', 'calendar', <CalendarOutlined />, () =>
       navigate(routeConstant.app.calendar.path),
     ),
-    getItem('Programs', 'programs', <DashboardOutlined />, () =>
+    getItem('Exercises', 'exercises',  <PngIcon src={exerciseIcon} />, () =>
+      navigate(routeConstant.app.calendar.path),
+    ),
+    getItem('Programs', 'programs', <PngIcon src={programsIcon} />, () =>
       navigate(routeConstant.app.programs.path),
     ),
-    getItem('Inbox', 'inbox', <DashboardOutlined />, () =>
+    getItem('Inbox', 'inbox', <PngIcon src={inboxIcon} />, () =>
       navigate(routeConstant.app.inbox.path),
     ),
-    getItem('Community Blog', 'blogs', <DashboardOutlined />, () =>
+    getItem('Community Blog', 'blogs', <PngIcon src={communityBlogIcon} />, () =>
       navigate(routeConstant.app.blogs.path),
     ),
-    getItem('Payment', 'payment', <DashboardOutlined />, () =>
+    getItem('Payment', 'payment', <PngIcon src={paymentIcon} />, () =>
       navigate(routeConstant.app.payment.path),
     ),
-    getItem('Referral Programs', 'referral', <DashboardOutlined />, () =>
+    getItem('Referral Programs', 'referral', <PngIcon src={referralIcon} />, () =>
       navigate(routeConstant.app.referral.path),
     ),
-    getItem('Teammates', 'teammates', <DashboardOutlined />, () =>
+    getItem('Teammates', 'teammates', <PngIcon src={teammatesIcon} />, () =>
       navigate(routeConstant.app.teammates.path),
     ),
-    getItem('Acount Details', 'profile', <DashboardOutlined />, () =>
+    getItem('Acount Details', 'profile', <PngIcon src={accountIcon} />, () =>
       navigate(routeConstant.app.profile.path),
     ),
-    getItem('Billing', 'billing', <DashboardOutlined />, () =>
+    getItem('Billing', 'billing', <PngIcon src={billingIcon} />, () =>
       navigate(routeConstant.app.billing.path),
     ),
-    // getItem('Setting', 'settings', <SettingOutlined />, undefined, [
-    //   getItem('Change Password', 'changePassword', undefined, () =>
-    //     navigate(routeConstant.app.changePassword.path),
-    //   ),
-    //   getItem('Email Template', 'emailTemplate', undefined, () =>
-    //     navigate(routeConstant.app.emailTemplate.path),
-    //   ),
-    //   getItem('Change Theme', 'change_theme', undefined, () =>
-    //     navigate(routeConstant.app.change_theme.path),
-    //   ),
-    // ]),
     getItem('Logout', 'logout', <LogoutOutlined />, onClickLogout),
   ];
 

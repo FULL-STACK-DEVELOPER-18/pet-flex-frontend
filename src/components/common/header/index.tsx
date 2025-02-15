@@ -26,7 +26,7 @@ export const HeaderComponent = ({ setCollapsed, collapsed }: HeaderComponentProp
             onClick={() => setCollapsed(!collapsed)}
             className='collapsed-button'
           />
-          <span className='clients-text'>All Clients (2)</span>
+          <span className='clients-text'>All Clients (7)</span>
         </div>
         <div className='right-content'>
           <Button className='upgrade-button'>
