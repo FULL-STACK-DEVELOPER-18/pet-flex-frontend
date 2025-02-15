@@ -10,6 +10,7 @@ import { AxiosError } from 'axios';
 import './forgot-password.style.scss';
 
 export const ForgotPassword: FC = () => {
+  console.log("test")
   const navigate = useNavigate();
 
   const { mutate, error, isPending } = useMutation({
