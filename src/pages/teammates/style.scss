@@ -1,0 +1,105 @@
+.team-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px 60px;
+  background-color: #71BB5C1A;
+  border-radius: 10px;
+
+  .team-info {
+    flex: 1;
+    padding-right: 40px;
+
+    h1 {
+      color: #40a76b;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: #666;
+      font-size: 16px;
+    }
+  }
+
+  .team-image {
+    flex: 1;
+    max-width: 400px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.table-btn {
+  text-align: right;
+  margin-bottom: 20px;
+
+  .ant-btn {
+    height: 38px;
+    font-weight: 600;
+    font-size: 16px;
+    background-color: #C0F84B;
+    border: none;
+
+    &:hover {
+      background-color: #358756;
+    }
+  }
+}
+
+.ant-table-thead > tr > th {
+  background-color: #71BB5C !important;
+  color: white !important;
+}
+
+.ant-table-tbody > tr > td {
+  padding: 12px;
+}
+
+.invite-button {
+  width: 100%;
+  height: 40px;
+  background-color: #C0F84B;
+  border: none;
+  color: black;
+  font-weight: 600;
+  
+  &:hover {
+    background-color: #a8e042;
+    color: black;
+  }
+}
+
+.ant-radio-group {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.ant-tag {
+  min-width: 80px;
+  text-align: center;
+}
+
+.ant-btn.ant-btn-text {
+  border: none;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: #a8e042 !important;
+  }
+}
