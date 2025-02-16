@@ -58,7 +58,7 @@ export const useSidebarItems = () => {
       navigate(routeConstant.app.calendar.path),
     ),
     getItem('Exercises', 'exercises',  <PngIcon src={exerciseIcon} />, () =>
-      navigate(routeConstant.app.calendar.path),
+      navigate(routeConstant.app.exercises.path),
     ),
     getItem('Programs', 'programs', <PngIcon src={programsIcon} />, () =>
       navigate(routeConstant.app.programs.path),

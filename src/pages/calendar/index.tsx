@@ -49,7 +49,22 @@ export const CalendarEvents: React.FC = () => {
   };
 
   const monthCellRender = (value: Dayjs) => {
-    return <div>{value.format('MMMM')}</div>;
+    const monthEvents = eventList.filter((event: any) =>  value.isSame(event.date, 'month'));
+    return (
+    <div>
+      <div>{value.format('MMMM')}</div>
+      {monthEvents.length > 0 && (
+        <div style={{ 
+          fontSize: '12px', 
+          color: '#40a76b',
+          marginTop: '4px' 
+        }}>
+          {monthEvents.length} {monthEvents.length === 1 ? 'Event' : 'Events'}
+        </div>
+      )}
+    </div>
+
+    )
   };
 
   return (
