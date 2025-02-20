@@ -7,6 +7,7 @@ import { changePassword } from '../../redux/actions/auth.action';
 import { Validation } from '../../constants/validations';
 import { fetchUserProfile, updateUserProfile } from '../../redux/actions/user.action';
 import { useNavigate } from 'react-router-dom';
+import dayjs from 'dayjs';
 
 const { TabPane } = Tabs;
 
@@ -55,7 +56,11 @@ export const Profile = () => {
   });
 
   const handleProfileSubmit = (values: any) => {
-    updateProfile(values);
+    const formattedValues = {
+      ...values,
+      dateOfBirth: values.dateOfBirth ? values.dateOfBirth.toISOString() : null
+    };
+    updateProfile(formattedValues);
   };
 
   const handlePasswordSubmit = (values: any) => {
@@ -95,7 +100,10 @@ export const Profile = () => {
               form={form} 
               layout="vertical" 
               onFinish={handleProfileSubmit}
-              initialValues={profileData}
+              initialValues={{
+                ...profileData,
+                dateOfBirth: profileData?.dateOfBirth ? dayjs(profileData.dateOfBirth) : null
+              }}
               className="profile-form"
             >
               <Row gutter={24}>
@@ -121,7 +129,7 @@ export const Profile = () => {
 
               <Row gutter={24}>
                 <Col span={12}>
-                  <Form.Item label="Date Of Birth" name="dob">
+                  <Form.Item label="Date Of Birth" name="dateOfBirth">
                     <DatePicker style={{ width: '100%' }} placeholder="Select date of birth" />
                   </Form.Item>
                 </Col>
