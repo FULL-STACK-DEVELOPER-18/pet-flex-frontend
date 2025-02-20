@@ -1,6 +1,7 @@
 export interface Step {
   stepNumber: number;
   description: string;
+  images?: string[];
 }
 
 export interface ExerciseData {
@@ -8,6 +9,5 @@ export interface ExerciseData {
   name: string;
   area: string;
   mainImage: string;
-  stepImages: string[];
   steps: Step[];
 } 

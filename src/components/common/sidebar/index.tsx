@@ -1,19 +1,31 @@
 import { Layout, Menu } from 'antd';
 import { routeConstant } from '../../../constants/routes';
 import { useSidebarItems } from '../../../hooks/slider-items.hook';
+import { CopyOutlined, UserOutlined } from '@ant-design/icons';
+import { useState } from 'react';
 const { Sider } = Layout;
 
 import './sidebar.scss';
 import { PaymentPetflexClapIcon, PetFlexLogo } from '../../../assets/svg-images';
+
 interface SidebarComponentProps {
   collapsed: boolean;
   setCollapsed: (collapsed: boolean) => void;
 }
+
 export const SidebarComponent = ({
   collapsed,
   setCollapsed,
 }: SidebarComponentProps) => {
   const menuItems = useSidebarItems();
+  const [inviteLink] = useState('Invite.54fdf5ddl....');
+
+  // Mock user data - replace with actual user data from your auth context/store
+  const user = {
+    name: 'Edwards Jones',
+    role: 'Manager',
+    avatar: null
+  };
 
   // Find a matching route in the routeConstant object
   const matchingRoute = Object.values(routeConstant.app).find(
@@ -26,11 +38,21 @@ export const SidebarComponent = ({
     }
   };
 
+  const handleCopyInvite = () => {
+    navigator.clipboard.writeText(inviteLink);
+    // You can add a notification here to show "Copied!" message
+  };
+
   return (
-    <div
-      className={`sidebar-menu ${collapsed ? 'close_sidebar' : 'open_sidebar'}`}
-    >
-      <Sider width={250} trigger={null} collapsible collapsed={collapsed}   collapsedWidth={75} className='sidebarr'>
+    <div className={`sidebar-menu ${collapsed ? 'close_sidebar' : 'open_sidebar'}`}>
+      <Sider 
+        width={250} 
+        trigger={null} 
+        collapsible 
+        collapsed={collapsed} 
+        collapsedWidth={75} 
+        className='sidebarr'
+      >
         <div className="logo">
           {!collapsed ? <PetFlexLogo /> : <PaymentPetflexClapIcon />}
           {window.innerWidth <= 767 && !collapsed && (
@@ -48,6 +70,7 @@ export const SidebarComponent = ({
             </div>
           )}
         </div>
+        
         <Menu
           theme="dark"
           mode="inline"
@@ -55,6 +78,29 @@ export const SidebarComponent = ({
           items={menuItems}
           onClick={onCloseSideBar}
         />
+
+        {!collapsed && (
+          <div className="user-profile-section">
+            <div className="user-info">
+              <div className="avatar">
+                {user.avatar ? (
+                  <img src={user.avatar} alt={user.name} />
+                ) : (
+                  <UserOutlined />
+                )}
+              </div>
+              <div className="user-details">
+                <div className="name">{user.name}</div>
+                <div className="role">{user.role}</div>
+              </div>
+            </div>
+            
+            <div className="invite-link">
+              <span>{inviteLink}</span>
+              <CopyOutlined className="copy-icon" onClick={handleCopyInvite} />
+            </div>
+          </div>
+        )}
       </Sider>
     </div>
   );
